@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mobsf
+  apiVersion: v1
+  kind: Namespace
+  metadata:
+    name: mobsf-dev
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        editor: vscode
+    spec:
+      containers:
+      - name: mobsf-container
+        image: hub.docker.com/r/okarinadantas/mobsf
+        resources:
+          limits:
+            cpu: 100
+            memory: 256
+          requests:
+            cpu: 50
+            memory: 128

@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mobsf
+  labels:
+    name: mobsf
+spec:
+  rules:
+  - host: local:8000:8000
+    http:
+      paths:
+      - pathType: ImplementSpeficic
+        path: "/"
+        backend:
+          service:
+            name: mobsf-service
+            port:
+              number: 8000
